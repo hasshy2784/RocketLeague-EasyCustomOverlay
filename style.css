@@ -1,0 +1,554 @@
+/*************************************
+
+Coded by HASSHY
+Please follow me on Twitter and Twitch
+
+*************************************/
+
+body,
+#score-box,
+#blue-players-box,
+#blue-player-1-box, #blue-player-2-box, #blue-player-3-box,
+#orange-players-box,
+#orange-player-1-box, #orange-player-2-box, #orange-player-3-box,
+#active-box, #scorer-box {
+  width: 1920px;
+  height: 1080px;
+}
+
+/*************************************
+ ■ スコアボード ■ 
+*************************************/
+
+/* タイマー */
+#timer-box {
+  top: 10px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  width: 150px;
+  text-align: center;
+}
+#timer {
+  color: white;
+  font-size: 50px;
+}
+
+/* Blueチーム名 */
+#blue-team-name-box {
+  top: 10px;
+  left: 400px;
+
+  width: 350px;
+  text-align: right;
+}
+#blue-team-name {
+  color: white;
+  font-size: 50px;
+}
+
+/* Blueチームスコア */
+#blue-score-box {
+  top: 10px;
+  left: 790px;
+
+  width: 60px;
+  text-align: center;
+}
+#blue-score {
+  color: white;
+  font-size: 50px;
+}
+
+/* Orangeチーム名 */
+#orange-team-name-box {
+  top: 10px;
+  right: 400px;
+
+  width: 350px;
+  text-align: left;
+}
+#orange-team-name {
+  color: white;
+  font-size: 50px;
+}
+
+/* Orangeチームスコア */
+#orange-score-box {
+  top: 10px;
+  right: 790px;
+
+  width: 60px;
+  text-align: center;
+}
+#orange-score {
+  color: white;
+  font-size: 50px;
+}
+
+/*************************************
+ ■ Blueチームの情報 ■ 
+*************************************/
+
+/* Blueチームプレイヤー1の情報 */
+/* プレイヤー名 */
+#blue-player-1-name-box {
+  top:   15px;
+  left:  10px;
+
+  width:       270px;
+  text-align:   left;
+}
+#blue-player-1-name {
+  color:     white;
+  font-size: 16px;
+}
+
+/* ブースト値 */
+#blue-player-1-boost-box {
+  top:   15px;
+  left:  10px;
+
+  width:       270px;
+  text-align:  right;
+}
+#blue-player-1-boost {
+  color:     white;
+  font-size: 16px;
+}
+
+/* ブーストバー */
+#blue-player-1-p-bar-box {
+  top:   40px;
+  left:  10px;
+
+  width:       270px;
+  height:       10px;
+  background-color: aliceblue;
+}
+#blue-player-1-p-bar {
+  background-color: dodgerblue;
+}
+
+/* Blueチームプレイヤー2の情報 */
+/* プレイヤー名 */
+#blue-player-2-name-box {
+  top: 75px;
+  left: 10px;
+
+  width: 280px;
+  text-align: left;
+}
+#blue-player-2-name {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブースト値 */
+#blue-player-2-boost-box {
+  top: 75px;
+  left: 10px;
+
+  width: 280px;
+  text-align: right;
+}
+#blue-player-2-boost {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブーストバー */
+#blue-player-2-p-bar-box {
+  top: 100px;
+  left: 10px;
+
+  width: 280px;
+  height: 10px;
+  background-color: aliceblue;
+}
+#blue-player-2-p-bar {
+  background-color: dodgerblue;
+}
+
+/* Blueチームプレイヤー3の情報 */
+/* プレイヤー名 */
+#blue-player-3-name-box {
+  top: 135px;
+  left: 10px;
+
+  width: 290px;
+  text-align: left;
+}
+#blue-player-3-name {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブーストバー */
+#blue-player-3-boost-box {
+  top: 135px;
+  left: 10px;
+
+  width: 290px;
+  text-align: right;
+}
+#blue-player-3-boost {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブースト値 */
+#blue-player-3-p-bar-box {
+  top: 160px;
+  left: 10px;
+
+  width: 290px;
+  height: 10px;
+  background-color: aliceblue;
+}
+#blue-player-3-p-bar {
+  background-color: dodgerblue;
+}
+
+/*************************************
+ ■ Orangeチームの情報 ■ 
+*************************************/
+
+/* Orangeチームプレイヤー1の情報 */
+/* プレイヤー名 */
+#orange-player-1-name-box {
+  top: 15px;
+  right: 10px;
+
+  width: 270px;
+  text-align: right;
+}
+#orange-player-1-name {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブースト値 */
+#orange-player-1-boost-box {
+  top: 15px;
+  right: 10px;
+
+  width: 270px;
+  text-align: left;
+}
+#orange-player-1-boost {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブーストバー */
+#orange-player-1-p-bar-box {
+  top: 40px;
+  right: 10px;
+
+  width: 270px;
+  height: 10px;
+  background-color: aliceblue;
+}
+#orange-player-1-p-bar {
+  background-color: orange;
+}
+
+/* Orangeチームプレイヤー2の情報 */
+/* プレイヤー名 */
+#orange-player-2-name-box {
+  top: 75px;
+  right: 10px;
+
+  width: 280px;
+  text-align: right;
+}
+#orange-player-2-name {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブースト値 */
+#orange-player-2-boost-box {
+  top: 75px;
+  right: 10px;
+
+  width: 280px;
+  text-align: left;
+}
+#orange-player-2-boost {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブーストバー */
+#orange-player-2-p-bar-box {
+  top: 100px;
+  right: 10px;
+
+  width: 280px;
+  height: 10px;
+  background-color: aliceblue;
+}
+#orange-player-2-p-bar {
+  background-color: orange;
+}
+
+/* Orangeチームプレイヤー3の情報 */
+/* プレイヤー名 */
+#orange-player-3-name-box {
+  top: 135px;
+  right: 10px;
+
+  width: 290px;
+  text-align: right;
+}
+#orange-player-3-name {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブースト値 */
+#orange-player-3-boost-box {
+  top: 135px;
+  right: 10px;
+
+  width: 290px;
+  text-align: left;
+}
+#orange-player-3-boost {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブーストバー */
+#orange-player-3-p-bar-box {
+  top: 160px;
+  right: 10px;
+
+  width: 290px;
+  height: 10px;
+  background-color: aliceblue;
+}
+#orange-player-3-p-bar {
+  background-color: orange;
+}
+
+/*************************************
+ ■ アクティブプレイヤーの情報 ■ 
+*************************************/
+/* プレイヤー名 */
+#active-name-box {
+  bottom: 70px;
+  left: 20px;
+
+  width: 270px;
+  text-align: left;
+}
+#active-name {
+  color: white;
+  font-size: 30px;
+}
+
+/* スコア */
+#active-score-box {
+  bottom: 12px;
+  left: 5px;
+
+  width: 40px;
+  text-align: right;
+}
+#active-score {
+  color: white;
+  font-size: 16px;
+}
+
+/* ゴール数 */
+#active-goals-box {
+  bottom: 12px;
+  left: 200px;
+
+  width: 40px;
+  text-align: right;
+}
+#active-goals {
+  color: white;
+  font-size: 16px;
+}
+
+/* シュート数 */
+#active-shots-box {
+  bottom: 12px;
+  left: 400px;
+
+  width: 40px;
+  text-align: right;
+}
+#active-shots {
+  color: white;
+  font-size: 16px;
+}
+
+/* アシスト数 */
+#active-assists-box {
+  bottom: 12px;
+  left: 590px;
+
+  width: 40px;
+  text-align: right;
+}
+#active-assists {
+  color: white;
+  font-size: 16px;
+}
+
+/* セーブ数 */
+#active-saves-box {
+  bottom: 12px;
+  left: 800px;
+
+  width: 40px;
+  text-align: right;
+}
+#active-saves {
+  color: white;
+  font-size: 16px;
+}
+
+/* デモ数 */
+/*
+#active-demos-box {
+  bottom: 0px;
+  left: 0px;
+
+  width: 40px;
+  text-align: right;
+}
+#active-demos {
+  color: white;
+  font-size: 16px;
+}
+*/
+
+/* ブースト値 */
+#active-boost-box {
+  bottom: 82px;
+  right: 67px;
+
+  width: 150px;
+  text-align: center;
+}
+#active-boost {
+  color: white;
+  font-size: 70px;
+
+  font-weight: 600;
+
+  text-shadow:
+    4px 0px 0 #000,
+    4px 4px 0 #000,
+    0px 4px 0 #000,
+    -4px 4px 0 #000,
+    -4px 0px 0 #000,
+    -4px -4px 0 #000,
+    0px -2px 0 #000,
+    4px -4px 0 #000;
+  -webkit-text-stroke: 2px #FFF;
+}
+
+/* ブーストゲージ */
+#active-p-gage-box {
+  bottom: 27px;
+  right: 42px;
+}
+
+/*************************************
+ ■ 得点者の情報 ■ 
+*************************************/
+
+/* プレイヤー名 */
+#scorer-name-box {
+  bottom: 15px;
+  left: 540px;
+
+  width: 200px;
+  text-align: left;
+}
+#scorer-name {
+  color: white;
+  font-size: 28px;
+}
+
+/* アシストプレイヤー名 */
+#scorer-assister-box {
+  bottom: 15px;
+  left: 960px;
+
+  width: 200px;
+  text-align: left;
+}
+#scorer-assister {
+  color: white;
+  font-size: 28px;
+}
+
+/* シュート速度（KPH） */
+#scorer-ballspeed-box {
+  bottom: 15px;
+  left: 1330px;
+
+  width: 100px;
+  text-align: left;
+}
+#scorer-ballspeed {
+  color: white;
+  font-size: 28px;
+}
+
+/*************************************
+ ■ 各種画像の設定 ■ 
+*************************************/
+
+/* リプレイ画像 */
+#replay-image {
+  /*透過の設定*/
+    opacity: 0.8;
+}
+
+/* リプレイ後の切り替え画像 */
+#transition-image {
+  opacity: 0;
+  transition: .7s;
+
+  animation-name: zoomIn;
+  animation-timing-function: ease;
+  animation-duration: 1s;
+  animation-delay: 2.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+/* リプレイ後の切り替え画像の変化 */
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}

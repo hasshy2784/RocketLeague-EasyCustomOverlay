@@ -1,0 +1,318 @@
+<!--
+
+Coded by HASSHY
+Please follow me on Twitter and Twitch
+
+-->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+  <title>RocketLeague EasyCustomOverlay by HASSHY</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script src="./flex-gauge-master/FlexGauge.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+  <div class="position-relative invisible" id="main-ui">
+    
+    <div class="position-absolute" id="base-image"><img src="./images/base.png"></div>
+
+    <div class="position-absolute d-none" id="replay-image">
+      <img class="position-absolute" src="./images/replay.png">
+      <img class="position-absolute" id="scored-blue-image" src="./images/scored-blue.png">
+      <img class="position-absolute" id="scored-orange-image" src="./images/scored-orange.png">
+    </div>
+
+    <div class="position-absolute d-none" id="active-blue-image"><img src="./images/active-blue.png"></div>
+    <div class="position-absolute d-none" id="active-orange-image"><img src="./images/active-orange.png"></div>
+    
+
+    <!-- ■ スコアボード情報 ■ ここから -->
+    <div class="position-absolute" id="score-box">
+
+      <!-- タイマー -->
+      <div class="position-absolute" id="timer-box">
+        <p class="d-none" id="overtime-text">Overtime</p>
+        <span id="timer"></span>
+      </div>
+
+      <!-- Blueチーム名 -->
+      <div class="position-absolute" id="blue-team-name-box">
+        <span id="blue-team-name"></span>
+      </div>
+      <!-- Blueチームスコア -->
+      <div class="position-absolute" id="blue-score-box">
+        <span id="blue-score">0</span>
+      </div>
+
+      <!-- Orangeチーム名 -->
+      <div class="position-absolute" id="orange-team-name-box">
+        <span id="orange-team-name"></span>
+      </div>
+      <!-- Orangeチームスコア -->
+      <div class="position-absolute" id="orange-score-box">
+        <span id="orange-score">0</span>
+      </div>
+
+    </div>
+    <!-- ■ スコアボード情報 ■ ここまで -->
+
+
+    <!-- ■ Blueチームの情報 ■ ここから -->
+    <div class="position-absolute" id="blue-players-box">
+
+      <!-- Blueチームプレイヤー1の情報 -->
+      <div class="position-absolute d-none" id="blue-player-1-box">
+
+        <!-- プレイヤー名 -->
+        <div class="position-absolute" id="blue-player-1-name-box">
+          <span id="blue-player-1-name">name</span>
+        </div>
+
+        <!-- ブースト値 -->
+        <div class="position-absolute" id="blue-player-1-boost-box">
+          <span id="blue-player-1-boost">20</span>
+        </div>
+
+        <!-- ブーストバー -->
+        <div class="position-absolute progress" id="blue-player-1-p-bar-box">
+          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+            aria-valuemax="100" id="blue-player-1-p-bar">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Blueチームプレイヤー2の情報 -->
+      <div class="position-absolute d-none" id="blue-player-2-box">
+
+        <!-- プレイヤー名 -->
+        <div class="position-absolute" id="blue-player-2-name-box">
+          <span id="blue-player-2-name">name</span>
+        </div>
+
+        <!-- ブースト値 -->
+        <div class="position-absolute" id="blue-player-2-boost-box">
+          <span id="blue-player-2-boost">20</span>
+        </div>
+
+        <!-- ブーストバー -->
+        <div class="position-absolute progress" id="blue-player-2-p-bar-box">
+          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+            id="blue-player-2-p-bar">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Blueチームプレイヤー3の情報 -->
+      <div class="position-absolute d-none" id="blue-player-3-box">
+
+        <!-- プレイヤー名 -->
+        <div class="position-absolute" id="blue-player-3-name-box">
+          <span id="blue-player-3-name">name</span>
+        </div>
+
+        <!-- ブースト値 -->
+        <div class="position-absolute" id="blue-player-3-boost-box">
+          <span id="blue-player-3-boost">20</span>
+        </div>
+
+        <!-- ブーストバー -->
+        <div class="position-absolute progress" id="blue-player-3-p-bar-box">
+          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+            id="blue-player-3-p-bar">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- ■ Blueチームの情報 ■ ここまで -->
+
+    
+    <!-- ■ Orangeチームの情報 ■ ここから -->
+    <div class="position-absolute" id="orange-players-box">
+
+      <!-- Orangeチームプレイヤー1の情報 -->
+      <div class="position-absolute d-none" id="orange-player-1-box">
+
+        <!-- プレイヤー名 -->
+        <div class="position-absolute" id="orange-player-1-name-box">
+          <span id="orange-player-1-name">name</span>
+        </div>
+
+        <!-- ブースト値 -->
+        <div class="position-absolute" id="orange-player-1-boost-box">
+          <span id="orange-player-1-boost">20</span>
+        </div>
+
+        <!-- ブーストバー -->
+        <div class="position-absolute progress justify-content-end" id="orange-player-1-p-bar-box">
+          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+            id="orange-player-1-p-bar">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Orangeチームプレイヤー2の情報 -->
+      <div class="position-absolute d-none" id="orange-player-2-box">
+
+        <!-- プレイヤー名 -->
+        <div class="position-absolute" id="orange-player-2-name-box">
+          <span id="orange-player-2-name">name</span>
+        </div>
+
+        <!-- ブースト値 -->
+        <div class="position-absolute" id="orange-player-2-boost-box">
+          <span id="orange-player-2-boost">20</span>
+        </div>
+
+        <!-- ブーストバー -->
+        <div class="position-absolute progress justify-content-end" id="orange-player-2-p-bar-box">
+          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+            id="orange-player-2-p-bar">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Orangeチームプレイヤー3の情報 -->
+      <div class="position-absolute d-none" id="orange-player-3-box">
+
+        <!-- プレイヤー名 -->
+        <div class="position-absolute" id="orange-player-3-name-box">
+          <span id="orange-player-3-name">name</span>
+        </div>
+
+        <!-- ブースト値 -->
+        <div class="position-absolute" id="orange-player-3-boost-box">
+          <span id="orange-player-3-boost">20</span>
+        </div>
+
+        <!-- ブーストバー -->
+        <div class="position-absolute progress justify-content-end" id="orange-player-3-p-bar-box">
+          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+            id="orange-player-3-p-bar">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- ■ Orangeチームの情報 ■ ここまで -->
+    
+    <!-- ■ アクティブプレイヤーの情報 ■ ここから -->
+    <div class="position-absolute" id="active-box">
+
+      <!-- プレイヤー名 -->
+      <div class="position-absolute" id="active-name-box">
+        <span id="active-name">Name</span>
+      </div>
+
+      <!-- スコア -->
+      <div class="position-absolute" id="active-score-box">
+        <span id="active-score">1</span>
+      </div>
+
+      <!-- ゴール数 -->
+      <div class="position-absolute" id="active-goals-box">
+        <span id="active-goals">1</span>
+      </div>
+
+      <!-- シュート数 -->
+      <div class="position-absolute" id="active-shots-box">
+        <span id="active-shots">1</span>
+      </div>
+
+      <!-- アシスト数 -->
+      <div class="position-absolute" id="active-assists-box">
+        <span id="active-assists">1</span>
+      </div>
+
+      <!-- セーブ数 -->
+      <div class="position-absolute" id="active-saves-box">
+        <span id="active-saves">1</span>
+      </div>
+
+      <!-- デモ数 -->
+      <!-- <div class="position-absolute" id="active-demos-box">
+        <span id="active-demos">1</span>
+      </div> -->
+
+      <!-- ブースト値 -->
+      <div class="position-absolute" id="active-boost-box">
+        <span id="active-boost">0</span>
+      </div>
+
+      <!-- ブーストゲージ -->
+      <div class="position-absolute" id="active-p-gage-box"></div>
+
+    </div>
+    <!-- ■ アクティブプレイヤーの情報 ■ ここまで -->
+
+
+
+    <!-- ■ 得点者情報 ■ ここから -->
+    <div class="position-absolute" id="scorer-box">
+
+      <!-- プレイヤー名 -->
+      <div class="position-absolute" id="scorer-name-box">
+        <span id="scorer-name">Name</span>
+      </div>
+
+      <!-- アシストプレイヤー名 -->
+      <div class="position-absolute" id="scorer-assister-box">
+        <span id="scorer-assister">Name</span>
+      </div>
+
+      <!-- シュート速度（KPH） -->
+      <div class="position-absolute" id="scorer-ballspeed-box">
+        <span id="scorer-ballspeed">100</span>
+      </div>
+
+    </div>
+    <!-- ■ 得点者情報 ■ ここまで -->
+
+    <div class="position-absolute d-none" id="transition-image">
+      <img class="position-absolute" src="./images/transition.png">
+    </div>
+
+  </div>
+
+  <!-- Flex Gauge by Jiff Millies -->
+  <!-- https://github.com/jeffmillies/flex-gauge -->
+  <script>
+    let gauge = new FlexGauge({
+        appendTo: '#active-p-gage-box',
+        arcAngleStart: 0.5,
+        arcAngleEnd: 1.8,
+        arcFillStart: 0,
+        arcFillTotal: 100,
+        animateSpeed: 1,
+
+        elementWidth: 200,
+        elementHeight: 200,
+
+        arcSize: 85, // ゲージの大きさ
+        arcStrokeFg: 30, // バー本体の太さ
+        arcStrokeBg: 30, // バー背景の太さ
+
+        colorArcFg: '#FF0000', // バー本体の色
+        arcBgColorLight: 80, // バー背景の明度（0 ～ 255）
+        arcBgColorSat: 20 // バー背景の彩度（0 ～ 100）
+      });
+  </script>
+  <script type="text/javascript" src="https://84log.xii.jp/libs/eco_app.js"></script>
+</body>
+
+</html>
