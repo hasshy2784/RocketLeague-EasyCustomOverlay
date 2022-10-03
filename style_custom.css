@@ -8,12 +8,14 @@ RocketLeague EasyCustomOverlay カスタムCSS
  ■ レイアウト確認用 ■ 
 ***************************************************/
 
+/*
 div {
   outline: 1px solid red;
 }
 span {
   outline: 1px solid greenyellow;
 }
+*/
 
 
 /***************************************************
