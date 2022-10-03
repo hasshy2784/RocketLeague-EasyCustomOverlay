@@ -1,7 +1,7 @@
 <!--
 
 Coded by HASSHY
-Please follow me on Twitter and Twitch
+Please follow me on Twitter and Twitch (@hasshy084)
 
 -->
 <!DOCTYPE html>
@@ -16,6 +16,7 @@ Please follow me on Twitter and Twitch
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./custom.css">
 
 </head>
 
@@ -23,17 +24,33 @@ Please follow me on Twitter and Twitch
 
   <div class="position-relative invisible" id="main-ui">
     
-    <div class="position-absolute" id="base-image"><img src="./images/base.png"></div>
-
+    <!-- リプレイ画像の指定 -->
     <div class="position-absolute d-none" id="replay-image">
       <img class="position-absolute" src="./images/replay.png">
       <img class="position-absolute" id="scored-blue-image" src="./images/scored-blue.png">
       <img class="position-absolute" id="scored-orange-image" src="./images/scored-orange.png">
     </div>
 
-    <div class="position-absolute d-none" id="active-blue-image"><img src="./images/active-blue.png"></div>
-    <div class="position-absolute d-none" id="active-orange-image"><img src="./images/active-orange.png"></div>
-    
+    <!-- 基本画像の指定 -->
+    <div class="position-absolute" id="base-image">
+      <img src="./images/base.png">
+    </div>
+
+    <!-- Blueチームアクティブ画像の指定 -->
+    <div class="position-absolute d-none" id="active-blue-image">
+      <img src="./images/active-blue.png">
+    </div>
+
+    <!-- Orangeチームアクティブ画像の指定 -->
+    <div class="position-absolute d-none" id="active-orange-image">
+      <img src="./images/active-orange.png">
+    </div>
+
+    <!-- ■ ミニマップ情報 ■ -->
+    <div class="position-absolute" id="minimap-box">
+        <img class="position-absolute" src="./images/minimap.png">
+        <canvas class="position-absolute" id="field" width="300px" height="200px"></canvas>
+    </div>
 
     <!-- ■ スコアボード情報 ■ ここから -->
     <div class="position-absolute" id="score-box">
@@ -245,9 +262,24 @@ Please follow me on Twitter and Twitch
       </div>
 
       <!-- デモ数 -->
-      <!-- <div class="position-absolute" id="active-demos-box">
+      <div class="position-absolute" id="active-demos-box">
         <span id="active-demos">1</span>
-      </div> -->
+      </div>
+
+      <!-- 他の車体との接触数 -->
+      <div class="position-absolute" id="active-cartouches-box">
+        <span id="active-cartouches">0</span>
+      </div>
+
+      <!-- 車体速度 -->
+      <div class="position-absolute" id="active-speed-box">
+        <span id="active-speed">0</span>
+      </div>
+
+      <!-- ボールタッチ回数 -->
+      <div class="position-absolute" id="active-touches-box">
+        <span id="active-touches">0</span>
+      </div>
 
       <!-- ブースト値 -->
       <div class="position-absolute" id="active-boost-box">
@@ -283,6 +315,7 @@ Please follow me on Twitter and Twitch
     </div>
     <!-- ■ 得点者情報 ■ ここまで -->
 
+    <!-- トランジション画像の指定 -->
     <div class="position-absolute d-none" id="transition-image">
       <img class="position-absolute" src="./images/transition.png">
     </div>
@@ -312,7 +345,8 @@ Please follow me on Twitter and Twitch
         arcBgColorSat: 20 // バー背景の彩度（0 ～ 100）
       });
   </script>
-  <script type="text/javascript" src="https://84log.xii.jp/libs/eco_app.js"></script>
+  <!-- <script type="text/javascript" src="https://84log.xii.jp/libs/eco_app.js"></script> -->
+  <script type="text/javascript" src="../../libs/eco_app.js"></script>
 </body>
 
 </html>
