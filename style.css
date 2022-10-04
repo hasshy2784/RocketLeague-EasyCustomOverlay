@@ -568,21 +568,57 @@ div#minimap-box,
   opacity: 0.8;
 }
 
-/* リプレイ後の切り替え画像 */
-#transition-image {
+/* ゴール後の切り替え画像 */
+#transition-after-goal-image {
   opacity: 0;
-  transition: .7s;
 
-  animation-name: zoomIn;
+  animation-name: afterGoal;
   animation-timing-function: ease;
-  animation-duration: 1s;
-  animation-delay: 2.5s;
+  animation-duration: 1s; /* アニメーションの再生時間 */
+  animation-delay: 3.3s; /* アニメーション開始時間の遅延 */
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+/* ゴール後の切り替え画像の変化 */
+/* (「animation-duration」で指定した時間の使い方) */
+@keyframes afterGoal {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* リプレイ後の切り替え画像 */
+#transition-after-replay-image {
+  opacity: 0;
+
+  animation-name: afterReplay;
+  animation-timing-function: ease;
+  animation-duration: 1s; /* アニメーションの再生時間 */
+  animation-delay: 2.5s; /* アニメーション開始時間の遅延 */
   animation-iteration-count: 1;
   animation-direction: normal;
 }
 
 /* リプレイ後の切り替え画像の変化 */
-@keyframes zoomIn {
+/* (「animation-duration」で指定した時間の使い方) */
+@keyframes afterReplay {
   0% {
     transform: scale(1);
     opacity: 0;
