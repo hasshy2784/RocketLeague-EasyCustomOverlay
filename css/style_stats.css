@@ -1,0 +1,157 @@
+/***************************************************
+
+Coded by HASSHY
+Please follow me on Twitter and Twitch (@hasshy084)
+
+***************************************************/
+
+body,
+.full-screen {
+  width: 1920px;
+  height: 1080px;
+}
+
+/* 背景画像 */
+#stats-back-image {
+  /* 透過設定 */
+  opacity: 0.9;
+}
+
+/***************************************************
+ ■ スコアボード ■ 
+***************************************************/
+
+#score-box {
+/* 不要であれば非表示 */
+  /* display: none; */
+}
+
+/* タイマー */
+#timer-box {
+  top: 10px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 150px;
+  text-align: center;
+}
+#timer {
+  color: white;
+  font-size: 50px;
+}
+#overtime-text {
+  color: white;
+  font-size: 16px;
+}
+
+/* Blueチーム名 */
+#blue-team-name-box {
+  top: 10px;
+  left: 250px;
+
+  width: 500px;
+  text-align: right;
+}
+
+#blue-team-name {
+  color: white;
+  font-size: 50px;
+}
+
+/* Blueチームスコア */
+#blue-score-box {
+  top: 10px;
+  left: 790px;
+
+  width: 60px;
+  text-align: center;
+}
+
+#blue-score {
+  color: white;
+  font-size: 50px;
+}
+
+/* Orangeチーム名 */
+#orange-team-name-box {
+  top: 10px;
+  right: 250px;
+
+  width: 500px;
+  text-align: left;
+}
+
+#orange-team-name {
+  color: white;
+  font-size: 50px;
+}
+
+/* Orangeチームスコア */
+#orange-score-box {
+  top: 10px;
+  right: 790px;
+
+  width: 60px;
+  text-align: center;
+}
+
+#orange-score {
+  color: white;
+  font-size: 50px;
+}
+
+
+
+/***************************************************
+ ■ スタッツボード ■ 
+***************************************************/
+
+/* スタッツテーブル */
+#stats-table {
+  top: 200px;
+
+  /* センタリング設定 */
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1600px !important;
+  /* text-align: center; */
+
+  /* フォント設定 */
+  font-size: 18px;
+  color: white;
+}
+
+/* ヘッダー列の設定 */
+.header {
+  min-width: 250px;
+  margin: 0px 30px;
+}
+
+/* プレイヤー列の設定 */
+.player {
+  min-width: 180px;
+  max-width: 700px;
+  width: 100%;
+  font-size: 30px;
+}
+
+/* 各行の設定 */
+th, td {
+  /* 高さ */
+  height: 90px; 
+}
+
+/* 比率バーの色 */
+.progress {
+  height: 16px;
+}
+.progress-bar.blue {
+  background-color: blue;
+}
+.progress-bar.orange {
+  background-color: orange;
+}

@@ -6,12 +6,7 @@ Please follow me on Twitter and Twitch (@hasshy084)
 ***************************************************/
 
 body,
-#score-box,
-#blue-players-box,
-#blue-player-1-box, #blue-player-2-box, #blue-player-3-box,
-#orange-players-box,
-#orange-player-1-box, #orange-player-2-box, #orange-player-3-box,
-#active-box, #scorer-box {
+.full-screen {
   width: 1920px;
   height: 1080px;
 }
@@ -34,6 +29,10 @@ body,
 #timer {
   color: white;
   font-size: 50px;
+}
+#overtime-text {
+  color: white;
+  font-size: 16px;
 }
 
 /* Blueチーム名 */
@@ -186,6 +185,19 @@ body,
   font-size: 16px;
 }
 
+/* ブースト値 */
+#blue-player-3-p-bar-box {
+  top: 160px;
+  left: 10px;
+
+  width: 290px;
+  height: 10px;
+  background-color: aliceblue;
+}
+#blue-player-3-p-bar {
+  background-color: dodgerblue;
+}
+
 /* ブーストバー */
 #blue-player-3-boost-box {
   top: 135px;
@@ -199,16 +211,43 @@ body,
   font-size: 16px;
 }
 
-/* ブースト値 */
-#blue-player-3-p-bar-box {
-  top: 160px;
+/* Blueチームプレイヤー4の情報 */
+/* プレイヤー名 */
+#blue-player-4-name-box {
+  top: 195px;
   left: 10px;
 
-  width: 290px;
+  width: 300px;
+  text-align: left;
+}
+#blue-player-4-name {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブースト値 */
+#blue-player-4-boost-box {
+  top: 195px;
+  left: 10px;
+
+  width: 300px;
+  text-align: right;
+}
+#blue-player-4-boost {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブーストバー */
+#blue-player-4-p-bar-box {
+  top: 220px;
+  left: 10px;
+
+  width: 300px;
   height: 10px;
   background-color: aliceblue;
 }
-#blue-player-3-p-bar {
+#blue-player-4-p-bar {
   background-color: dodgerblue;
 }
 
@@ -306,8 +345,8 @@ body,
   text-align: right;
 }
 #orange-player-3-name {
-  color: white;
-  font-size: 16px;
+    color: white;
+    font-size: 16px;
 }
 
 /* ブースト値 */
@@ -333,6 +372,46 @@ body,
   background-color: aliceblue;
 }
 #orange-player-3-p-bar {
+  background-color: orange;
+}
+
+/* Orangeチームプレイヤー4の情報 */
+/* プレイヤー名 */
+#orange-player-4-name-box {
+  top: 195px;
+  right: 10px;
+
+  width: 300px;
+  text-align: right;
+}
+#orange-player-4-name {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブースト値 */
+#orange-player-4-boost-box {
+  top: 195px;
+  right: 10px;
+
+  width: 300px;
+  text-align: left;
+}
+#orange-player-4-boost {
+  color: white;
+  font-size: 16px;
+}
+
+/* ブーストバー */
+#orange-player-4-p-bar-box {
+  top: 220px;
+  right: 10px;
+
+  width: 300px;
+  height: 10px;
+  background-color: aliceblue;
+}
+#orange-player-4-p-bar {
   background-color: orange;
 }
 
@@ -575,7 +654,7 @@ div#minimap-box,
   animation-name: afterGoal;
   animation-timing-function: ease;
   animation-duration: 1s; /* アニメーションの再生時間 */
-  animation-delay: 3.3s; /* アニメーション開始時間の遅延 */
+  animation-delay: 3.2s; /* アニメーション開始時間の遅延 */
   animation-iteration-count: 1;
   animation-direction: normal;
 }
