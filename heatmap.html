@@ -1,0 +1,349 @@
+<!--
+
+Coded by HASSHY
+Please follow me on Twitter and Twitch (@hasshy084)
+
+-->
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+
+    <title>RocketLeague EasyCustomOverlay (HeatMap) by HASSHY</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css'> -->
+
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script> -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="./css/style_heatmap.css">
+    <link rel="stylesheet" href="./css/style_custom.css">
+
+  </head>
+
+  <body>
+
+    <div class="position-relative full-screen invisible" id="main-ui">
+
+      <!-- 背景画像の指定 -->
+      <div class="position-absolute" id="heatmap-back-image">
+        <img class="position-absolute" src="./images/heatmap-back.png">
+      </div>
+      
+      <!-- スコアボード画像の指定 -->
+      <div class="position-absolute" id="score-board-image">
+        <img src="./images/score-board.png">
+      </div>
+
+      <!-- ■ スコアボード情報 ■ ここから -->
+      <div class="position-absolute full-screen" id="score-box">
+
+        <!-- タイマー -->
+        <div class="position-absolute" id="timer-box">
+          <span id="timer">5:00</span>
+          <p class="d-none" id="overtime-text">Overtime</p>
+        </div>
+
+        <!-- Blueチーム名 -->
+        <div class="position-absolute" id="blue-team-name-box">
+          <span id="blue-team-name">Blue Team Name</span>
+        </div>
+        <!-- Blueチームスコア -->
+        <div class="position-absolute" id="blue-score-box">
+          <span id="blue-score">0</span>
+        </div>
+
+        <!-- Orangeチーム名 -->
+        <div class="position-absolute" id="orange-team-name-box">
+          <span id="orange-team-name">Orange Team Name</span>
+        </div>
+        <!-- Orangeチームスコア -->
+        <div class="position-absolute" id="orange-score-box">
+          <span id="orange-score">0</span>
+        </div>
+
+      </div>
+      <!-- ■ スコアボード情報 ■ ここまで -->
+
+      <!-- ■ ヒートマップ（チーム） ■ ここから -->
+      <div class="position-absolute full-screen" id="heatmap-team-box">
+
+        <!-- ドーナッツグラフタイトル -->
+        <div class="position-absolute" id="doughnut-title-box">
+          <p>BALL</p>
+          <p>POSSESSION</p>
+        </div>
+
+        <!-- Blueチームヒートマップ -->
+        <div class="position-absolute heatmap" id="heatmap-blue-team-box">
+          <img class="position-absolute" src="./images/heatmap-frame.png">
+          <canvas id="heatmap-blue-team"></canvas>
+        </div>
+
+        <div class="position-absolute d-flex align-items-center justify-content-center" id="doughnut-blue-team-box">
+          <canvas class="position-absolute" id="doughnut-blue-team"></canvas>
+          <span id="doughnut-blue-team-value">50%</span>
+        </div>
+
+        <!-- Orangeチームヒートマップ -->
+        <div class="position-absolute heatmap" id="heatmap-orange-team-box">
+          <img class="position-absolute" src="./images/heatmap-frame.png">
+          <canvas id="heatmap-orange-team"></canvas>
+        </div>
+
+        <div class="position-absolute d-flex align-items-center justify-content-center" id="doughnut-orange-team-box">
+          <canvas class="position-absolute" id="doughnut-orange-team"></canvas>
+          <span id="doughnut-orange-team-value">50%</span>
+        </div>
+
+      </div>
+      <!-- ■ ヒートマップ（チーム） ■ ここまで -->
+
+      <!-- ■ ヒートマップ（プレイヤー） ■ ここから -->
+      <div class="position-absolute full-screen" id="heatmap-player-box">
+
+        <!-- ■ Blueチームの情報 ■ ここから -->
+        <div class="position-absolute full-screen" id="blue-players-box">
+
+          <!-- Blueチームプレイヤー1の情報 -->
+          <div class="position-absolute full-screen d-none" id="blue-player-1-box">
+
+            <!-- ヒートマップ -->
+            <div class="position-absolute heatmap" id="heatmap-blue-player-1-box">
+              <img class="position-absolute" src="./images/heatmap-frame.png">
+              <canvas id="heatmap-blue-player-1"></canvas>
+            </div>
+
+            <!-- スタッツ -->
+            <div class="position-absolute container" id="stats-blue-player-1-box">
+              <div class="row mb-3">
+                <div class="col">
+                  <span class="name d-flex justify-content-center" id="blue-player-1-name">name1</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="header">BALL POSSESSION</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="value" id="blue-player-1-possession">15%</span>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <span class="value" id="blue-player-1-touches">10</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col d-flex justify-content-end">
+                  <span class="header">BALL TOUCHES</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blueチームプレイヤー2の情報 -->
+          <div class="position-absolute full-screen d-none" id="blue-player-2-box">
+              
+            <!-- ヒートマップ -->
+            <div class="position-absolute heatmap" id="heatmap-blue-player-2-box">
+              <img class="position-absolute" src="./images/heatmap-frame.png">
+              <canvas id="heatmap-blue-player-2"></canvas>
+            </div>
+
+            <!-- スタッツ -->
+            <div class="position-absolute container" id="stats-blue-player-2-box">
+              <div class="row mb-3">
+                <div class="col">
+                  <span class="name d-flex justify-content-center" id="blue-player-2-name">name1</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="header">BALL POSSESSION</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="value" id="blue-player-2-possession">15%</span>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <span class="value" id="blue-player-2-touches">20</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col d-flex justify-content-end">
+                  <span class="header">BALL TOUCHES</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blueチームプレイヤー3の情報 -->
+          <div class="position-absolute full-screen d-none" id="blue-player-3-box">
+              
+            <!-- ヒートマップ -->
+            <div class="position-absolute heatmap" id="heatmap-blue-player-3-box">
+              <img class="position-absolute" src="./images/heatmap-frame.png">
+              <canvas class="position-absolute" id="heatmap-blue-player-3"></canvas>
+            </div>
+
+            <!-- スタッツ -->
+            <div class="position-absolute container" id="stats-blue-player-3-box">
+              <div class="row mb-3">
+                <div class="col">
+                  <span class="name d-flex justify-content-center" id="blue-player-3-name">name1</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="header">BALL POSSESSION</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="value" id="blue-player-3-possession">15%</span>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <span class="value" id="blue-player-3-touches">30</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col d-flex justify-content-end">
+                  <span class="header">BALL TOUCHES</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ■ Blueチームの情報 ■ ここまで -->
+
+        <!-- ■ Orangeチームの情報 ■ ここから -->
+        <div class="position-absolute full-screen" id="orange-players-box">
+          
+          <!-- Orangeチームプレイヤー1の情報 -->
+          <div class="position-absolute full-screen d-none" id="orange-player-1-box">
+              
+            <!-- ヒートマップ -->
+            <div class="position-absolute heatmap" id="heatmap-orange-player-1-box">
+              <img class="position-absolute" src="./images/heatmap-frame.png">
+              <canvas id="heatmap-orange-player-1"></canvas>
+            </div>
+
+            <!-- スタッツ -->
+            <div class="position-absolute container" id="stats-orange-player-1-box">
+              <div class="row mb-3">
+                <div class="col">
+                  <span class="name d-flex justify-content-center" id="orange-player-1-name">name1</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col d-flex justify-content-end">
+                  <span class="header">BALL POSSESSION</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="value" id="orange-player-1-touches">10</span>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <span class="value" id="orange-player-1-possession">15%</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col ">
+                  <span class="header">BALL TOUCHES</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Orangeチームプレイヤー2の情報 -->
+          <div class="position-absolute full-screen d-none" id="orange-player-2-box">
+            
+            <!-- ヒートマップ -->
+            <div class="position-absolute heatmap" id="heatmap-orange-player-2-box">
+              <img class="position-absolute" src="./images/heatmap-frame.png">
+              <canvas id="heatmap-orange-player-2"></canvas>
+            </div>
+
+            <!-- スタッツ -->
+            <div class="position-absolute container" id="stats-orange-player-2-box">
+              <div class="row mb-3">
+                <div class="col">
+                  <span class="name d-flex justify-content-center" id="orange-player-2-name">name1</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col d-flex justify-content-end">
+                  <span class="header">BALL POSSESSION</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="value" id="orange-player-2-touches">20</span>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <span class="value" id="orange-player-2-possession">15%</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col ">
+                  <span class="header">BALL TOUCHES</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Orangeチームプレイヤー3の情報 -->
+          <div class="position-absolute full-screen d-none" id="orange-player-3-box">
+              
+            <!-- ヒートマップ -->
+            <div class="position-absolute heatmap" id="heatmap-orange-player-3-box">
+              <img class="position-absolute" src="./images/heatmap-frame.png">
+              <canvas id="heatmap-orange-player-3"></canvas>
+            </div>
+
+            <!-- スタッツ -->
+            <div class="position-absolute container" id="stats-orange-player-3-box">
+              <div class="row mb-3">
+                <div class="col">
+                  <span class="name d-flex justify-content-center" id="orange-player-3-name">name1</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col d-flex justify-content-end">
+                  <span class="header">BALL POSSESSION</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="value" id="orange-player-3-touches">30</span>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <span class="value" id="orange-player-3-possession">15%</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col ">
+                  <span class="header">BALL TOUCHES</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ■ Orangeチームの情報 ■ ここまで -->
+
+      </div>
+      <!-- ■ ヒートマップ（プレイヤー） ■ ここまで -->
+
+    </div>
+
+    <script type="text/javascript" src="https://84log.xii.jp/libs/rl-eco_app_heatmap.js"></script>
+    <!-- <script type="text/javascript" src="../../libs/rl-eco_app_heatmap.js"></script> -->
+  </body>
+
+</html>

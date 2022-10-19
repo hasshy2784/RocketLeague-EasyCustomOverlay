@@ -9,11 +9,12 @@ Please follow me on Twitter and Twitch (@hasshy084)
 
   <head>
 
-    <title>RocketLeague EasyCustomOverlay by HASSHY</title>
+    <title>RocketLeague EasyCustomOverlay (Main) by HASSHY</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script src="./flex-gauge-master/FlexGauge.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/style_custom.css">
@@ -31,9 +32,14 @@ Please follow me on Twitter and Twitch (@hasshy084)
         <img class="position-absolute" id="scored-orange-image" src="./images/scored-orange.png">
       </div>
 
-      <!-- 基本画像の指定 -->
-      <div class="position-absolute" id="base-image">
-        <img src="./images/base.png">
+      <!-- 各プレイヤー情報背景画像の指定 -->
+      <div class="position-absolute" id="players-back-image">
+        <img src="./images/players-back.png">
+      </div>
+
+      <!-- スコアボード画像の指定 -->
+      <div class="position-absolute" id="score-board-image">
+        <img src="./images/score-board.png">
       </div>
 
       <!-- Blueチームアクティブ画像の指定 -->
@@ -48,8 +54,8 @@ Please follow me on Twitter and Twitch (@hasshy084)
 
       <!-- ■ ミニマップ情報 ■ -->
       <div class="position-absolute" id="minimap-box">
-          <img class="position-absolute" src="./images/minimap.png">
-          <canvas class="position-absolute" id="field" width="300px" height="200px"></canvas>
+        <img class="position-absolute" src="./images/minimap.png">
+        <canvas class="position-absolute" id="field" width="300px" height="200px"></canvas>
       </div>
 
       <!-- ■ スコアボード情報 ■ ここから -->
@@ -57,8 +63,8 @@ Please follow me on Twitter and Twitch (@hasshy084)
 
         <!-- タイマー -->
         <div class="position-absolute" id="timer-box">
+          <span class="d-none" id="overtime-text">+</span>
           <span id="timer">5:00</span>
-          <p class="d-none" id="overtime-text">Overtime</p>
         </div>
 
         <!-- Blueチーム名 -->
@@ -395,8 +401,8 @@ Please follow me on Twitter and Twitch (@hasshy084)
           arcBgColorSat: 20 // バー背景の彩度（0 ～ 100）
         });
     </script>
-    <script type="text/javascript" src="https://84log.xii.jp/libs/eco_app.js"></script>
-    <!-- <script type="text/javascript" src="../../libs/eco_app.js"></script> -->
+    <script type="text/javascript" src="https://84log.xii.jp/libs/rl-eco_app.js"></script>
+    <!-- <script type="text/javascript" src="../../libs/rl-eco_app.js"></script> -->
   </body>
 
 </html>

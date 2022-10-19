@@ -22,7 +22,7 @@ body,
 ***************************************************/
 
 #score-box {
-/* 不要であれば非表示 */
+  /* 不要であれば非表示 */
   /* display: none; */
 }
 
@@ -37,27 +37,24 @@ body,
   width: 150px;
   text-align: center;
 }
-#timer {
-  color: white;
-  font-size: 50px;
-}
+#timer,
 #overtime-text {
   color: white;
-  font-size: 16px;
+  font-size: 50px;
 }
 
 /* Blueチーム名 */
 #blue-team-name-box {
-  top: 10px;
-  left: 250px;
+  top: 20px;
+  left: 400px;
 
-  width: 500px;
+  width: 350px;
   text-align: right;
 }
 
 #blue-team-name {
   color: white;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 /* Blueチームスコア */
@@ -76,16 +73,16 @@ body,
 
 /* Orangeチーム名 */
 #orange-team-name-box {
-  top: 10px;
-  right: 250px;
+  top: 20px;
+  right: 400px;
 
-  width: 500px;
+  width: 350px;
   text-align: left;
 }
 
 #orange-team-name {
   color: white;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 /* Orangeチームスコア */

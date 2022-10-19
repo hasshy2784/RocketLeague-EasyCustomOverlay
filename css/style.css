@@ -26,18 +26,15 @@ body,
   width: 150px;
   text-align: center;
 }
-#timer {
-  color: white;
-  font-size: 50px;
-}
+#timer,
 #overtime-text {
   color: white;
-  font-size: 16px;
+  font-size: 50px;
 }
 
 /* Blueチーム名 */
 #blue-team-name-box {
-  top: 10px;
+  top: 20px;
   left: 400px;
 
   width: 350px;
@@ -45,7 +42,7 @@ body,
 }
 #blue-team-name {
   color: white;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 /* Blueチームスコア */
@@ -63,7 +60,7 @@ body,
 
 /* Orangeチーム名 */
 #orange-team-name-box {
-  top: 10px;
+  top: 20px;
   right: 400px;
 
   width: 350px;
@@ -71,7 +68,7 @@ body,
 }
 #orange-team-name {
   color: white;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 /* Orangeチームスコア */
@@ -651,7 +648,7 @@ div#minimap-box,
 #transition-after-goal-image {
   opacity: 0;
 
-  animation-name: afterGoal;
+  animation-name: fadeInOut;
   animation-timing-function: ease;
   animation-duration: 1s; /* アニメーションの再生時間 */
   animation-delay: 3.2s; /* アニメーション開始時間の遅延 */
@@ -659,35 +656,11 @@ div#minimap-box,
   animation-direction: normal;
 }
 
-/* ゴール後の切り替え画像の変化 */
-/* (「animation-duration」で指定した時間の使い方) */
-@keyframes afterGoal {
-  0% {
-    transform: scale(1);
-    opacity: 0;
-  }
-
-  30% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  70% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
 /* リプレイ後の切り替え画像 */
 #transition-after-replay-image {
   opacity: 0;
 
-  animation-name: afterReplay;
+  animation-name: fadeInOut;
   animation-timing-function: ease;
   animation-duration: 1s; /* アニメーションの再生時間 */
   animation-delay: 2.5s; /* アニメーション開始時間の遅延 */
@@ -695,9 +668,12 @@ div#minimap-box,
   animation-direction: normal;
 }
 
-/* リプレイ後の切り替え画像の変化 */
-/* (「animation-duration」で指定した時間の使い方) */
-@keyframes afterReplay {
+/***************************************************
+ ■ アニメーション一覧 ■
+/***************************************************
+
+/* フェードイン・アウト */
+@keyframes fadeInOut {
   0% {
     transform: scale(1);
     opacity: 0;
@@ -716,5 +692,51 @@ div#minimap-box,
   100% {
     opacity: 0;
     transform: scale(1);
+  }
+}
+
+/* スライドイン・アウト */
+@keyframes slideInOut {
+  0% {
+    transform: translateX(180px);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  100% {
+    transform: translateX(-180px);
+      opacity: 0;
+  }
+}
+
+/* ズームイン・アウト */
+@keyframes zoomInOut {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  /* 30% {
+    opacity: 1;
+    transform: scale(1);
+  } */
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
   }
 }

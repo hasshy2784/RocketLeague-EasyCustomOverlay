@@ -13,6 +13,7 @@ Please follow me on Twitter and Twitch (@hasshy084)
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style_stats.css">
     <link rel="stylesheet" href="./css/style_custom.css">
@@ -28,9 +29,9 @@ Please follow me on Twitter and Twitch (@hasshy084)
         <img class="position-absolute" src="./images/stats-back.png">
       </div>
 
-      <!-- 基本画像の指定 -->
-      <div class="position-absolute" id="base-image">
-        <img src="./images/stats-base.png">
+      <!-- スコアボード画像の指定 -->
+      <div class="position-absolute" id="score-board-image">
+        <img src="./images/score-board.png">
       </div>
 
       <!-- ■ スコアボード情報 ■ ここから -->
@@ -38,8 +39,8 @@ Please follow me on Twitter and Twitch (@hasshy084)
 
         <!-- タイマー -->
         <div class="position-absolute" id="timer-box">
+          <span class="d-none" id="overtime-text">+</span>
           <span id="timer">5:00</span>
-          <p class="d-none" id="overtime-text">Overtime</p>
         </div>
 
         <!-- Blueチーム名 -->
@@ -198,6 +199,7 @@ Please follow me on Twitter and Twitch (@hasshy084)
                 <span class="position-absolute top-50 start-50 translate-middle invisible">PLAYER</span>
               </th>
 
+              <!-- SCORE -->
               <td class="position-relative d-block score p-0">
                 <div class="position-absolute" style="width: 100%; height: 100%;">
                   <div class="position-relative d-flex align-items-end" style="width: 100%; height: 50%;">
@@ -212,6 +214,7 @@ Please follow me on Twitter and Twitch (@hasshy084)
                 </div>
               </td>
 
+              <!-- GOALS -->
               <td class="position-relative d-block goals p-0">
                 <div class="position-absolute" style="width: 100%; height: 100%;">
                   <div class="position-relative d-flex align-items-end" style="width: 100%; height: 50%;">
@@ -226,6 +229,7 @@ Please follow me on Twitter and Twitch (@hasshy084)
                 </div>
               </td>
 
+              <!-- ASSISTS -->
               <td class="position-relative d-block assists p-0">
                 <div class="position-absolute" style="width: 100%; height: 100%;">
                   <div class="position-relative d-flex align-items-end" style="width: 100%; height: 50%;">
@@ -240,6 +244,7 @@ Please follow me on Twitter and Twitch (@hasshy084)
                 </div>
               </td>
 
+              <!-- SAVES -->
               <td class="position-relative d-block saves p-0">
                 <div class="position-absolute" style="width: 100%; height: 100%;">
                   <div class="position-relative d-flex align-items-end" style="width: 100%; height: 50%;">
@@ -254,6 +259,7 @@ Please follow me on Twitter and Twitch (@hasshy084)
                 </div>
               </td>
 
+              <!-- SHOTS -->
               <td class="position-relative d-block shots p-0">
                 <div class="position-absolute" style="width: 100%; height: 100%;">
                   <div class="position-relative d-flex align-items-end" style="width: 100%; height: 50%;">
@@ -268,6 +274,7 @@ Please follow me on Twitter and Twitch (@hasshy084)
                 </div>
               </td>
 
+              <!-- DEMOS -->
               <td class="position-relative d-block demos p-0">
                 <div class="position-absolute" style="width: 100%; height: 100%;">
                   <div class="position-relative d-flex align-items-end" style="width: 100%; height: 50%;">
@@ -282,6 +289,7 @@ Please follow me on Twitter and Twitch (@hasshy084)
                 </div>
               </td>
 
+              <!-- TOUCHES -->
               <td class="position-relative d-block touches p-0">
                 <div class="position-absolute" style="width: 100%; height: 100%;">
                   <div class="position-relative d-flex align-items-end" style="width: 100%; height: 50%;">
@@ -296,6 +304,7 @@ Please follow me on Twitter and Twitch (@hasshy084)
                 </div>
               </td>
 
+              <!-- POSSESSION -->
               <td class="position-relative d-block possession p-0">
                 <div class="position-absolute" style="width: 100%; height: 100%;">
                   <div class="position-relative d-flex align-items-end" style="width: 100%; height: 50%;">

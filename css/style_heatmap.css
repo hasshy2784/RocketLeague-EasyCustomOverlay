@@ -1,0 +1,276 @@
+/***************************************************
+
+Coded by HASSHY
+Please follow me on Twitter and Twitch (@hasshy084)
+
+***************************************************/
+
+body,
+.full-screen {
+  width: 1920px;
+  height: 1080px;
+}
+
+/* 背景画像 */
+#heatmap-back-image {
+  /* 透過設定 */
+  opacity: 0.99;
+}
+
+/***************************************************
+ ■ スコアボード ■ 
+***************************************************/
+
+/* タイマー */
+#timer-box {
+  top: 10px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 150px;
+  text-align: center;
+
+  display: none;
+}
+#timer,
+#overtime-text {
+  color: white;
+  font-size: 50px;
+}
+
+/* Blueチーム名 */
+#blue-team-name-box {
+  top: 20px;
+  left: 400px;
+
+  width: 350px;
+  text-align: right;
+}
+#blue-team-name {
+  color: white;
+  font-size: 35px;
+}
+
+/* Blueチームスコア */
+#blue-score-box {
+  top: 10px;
+  left: 790px;
+
+  width: 60px;
+  text-align: center;
+}
+#blue-score {
+  color: white;
+  font-size: 50px;
+}
+
+/* Orangeチーム名 */
+#orange-team-name-box {
+  top: 20px;
+  right: 400px;
+
+  width: 350px;
+  text-align: left;
+}
+#orange-team-name {
+  color: white;
+  font-size: 35px;
+}
+
+/* Orangeチームスコア */
+#orange-score-box {
+  top: 10px;
+  right: 790px;
+
+  width: 60px;
+  text-align: center;
+}
+#orange-score {
+  color: white;
+  font-size: 50px;
+}
+
+/***************************************************
+ ■ ヒートマップ ■ 
+***************************************************/
+
+/* ヒートマップ（チーム）共通設定 */
+#heatmap-team-box .heatmap,
+#heatmap-team-box .heatmap img,
+#heatmap-team-box .heatmap canvas {
+  height: 300px !important;
+  width: 450px !important;
+}
+#heatmap-team-box .heatmap img {
+  opacity: 0.5;
+}
+
+#doughnut-title-box {
+  top: 600px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 150px;
+  text-align: center;
+}
+#doughnut-title-box p {
+  color: white;
+  font-size: 20px;
+}
+
+/* ヒートマップ（プレイヤー）共通設定 */
+#heatmap-player-box .heatmap,
+#heatmap-player-box .heatmap img,
+#heatmap-player-box .heatmap canvas {
+  height: 200px !important;
+  width: 300px !important;
+}
+#heatmap-player-box .heatmap img {
+  opacity: 0.5;
+}
+#heatmap-player-box .name {
+  color: white;
+  font-size: 30px;
+}
+#heatmap-player-box .header {
+  color: white;
+  font-size: 20px;
+}
+#heatmap-player-box .value {
+  color: white;
+  font-size: 45px;
+}
+
+/* Blueチーム */
+#heatmap-blue-team-box {
+  top: 200px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#doughnut-blue-team-box {
+  top: 535px;
+  left: 770px;
+}
+#doughnut-blue-team-box,
+#doughnut-blue-team {
+  width: 130px;
+  height: 130px;
+}
+#doughnut-blue-team-value {
+  font-size: 40px;
+  color: white;
+}
+
+
+/* Orangeチーム */
+#heatmap-orange-team-box {
+  top: 700px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#doughnut-orange-team-box {
+  top: 535px;
+  right: 770px;
+}
+#doughnut-orange-team-box,
+#doughnut-orange-team {
+  width: 130px;
+  height: 130px;
+}
+#doughnut-orange-team-value {
+  font-size: 40px;
+  color: white;
+}
+
+/* Blueプレイヤー1 */
+#heatmap-blue-player-1-box {
+  top: 200px;
+  left: 100px;
+}
+#stats-blue-player-1-box {
+  top: 200px;
+  left: 440px;
+
+  width: 260px;
+  font-size: 20px;
+  color: white;
+}
+
+
+/* Blueプレイヤー2 */
+#heatmap-blue-player-2-box {
+  top: 500px;
+  left: 100px;
+}
+#stats-blue-player-2-box {
+  top: 500px;
+  left: 440px;
+
+  width: 260px;
+  font-size: 20px;
+  color: white;
+}
+
+/* Blueプレイヤー3 */
+#heatmap-blue-player-3-box {
+  top: 800px;
+  left: 100px;
+}
+#stats-blue-player-3-box {
+  top: 800px;
+  left: 440px;
+
+  width: 260px;
+  font-size: 20px;
+  color: white;
+}
+
+/* Orangeプレイヤー1 */
+#heatmap-orange-player-1-box {
+  top: 200px;
+  right: 100px;
+}
+#stats-orange-player-1-box {
+  top: 200px;
+  right: 440px;
+
+  width: 260px;
+  font-size: 20px;
+  color: white;
+}
+
+/* Orangeプレイヤー2 */
+#heatmap-orange-player-2-box {
+  top: 500px;
+  right: 100px;
+}
+#stats-orange-player-2-box {
+  top: 500px;
+  right: 440px;
+
+  width: 260px;
+  font-size: 20px;
+  color: white;
+}
+
+/* Orangeプレイヤー3 */
+#heatmap-orange-player-3-box {
+  top: 800px;
+  right: 100px;
+}
+#stats-orange-player-3-box {
+  top: 800px;
+  right: 440px;
+
+  width: 260px;
+  font-size: 20px;
+  color: white;
+}
