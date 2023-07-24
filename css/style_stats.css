@@ -28,7 +28,7 @@ body,
 
 /* タイマー */
 #timer-box {
-  top: 10px;
+  top: 40px;
   left: 0px;
   right: 0px;
   margin-left: auto;
@@ -45,7 +45,7 @@ body,
 
 /* Blueチーム名 */
 #blue-team-name-box {
-  top: 20px;
+  top: 55px;
   left: 400px;
 
   width: 350px;
@@ -59,7 +59,7 @@ body,
 
 /* Blueチームスコア */
 #blue-score-box {
-  top: 10px;
+  top: 40px;
   left: 790px;
 
   width: 60px;
@@ -71,9 +71,40 @@ body,
   font-size: 50px;
 }
 
+/* Blueチーム勝利数 */
+#blue-team-win-count-box {
+  top: 120px;
+  right: 1140px;
+
+  width: 350px;
+  text-align: right;
+}
+#blue-team-win-count .win-icon:after {
+  /* From https://fonts.google.com/icons */
+  font-family: 'Material Icons';
+  content: '\eaa3';
+  font-weight: 900;
+  font-size: 30px;
+  color: blue;
+}
+
+/* Blueチーム画像 */
+#blue-image-box {
+  top: 50px;
+  left: 380px;
+
+  max-width: 70px;
+  max-height: 70px;
+}
+#blue-image {
+  max-width: 70px;
+  max-height: 70px;
+  border-style: none;
+}
+
 /* Orangeチーム名 */
 #orange-team-name-box {
-  top: 20px;
+  top: 55px;
   right: 400px;
 
   width: 350px;
@@ -87,7 +118,7 @@ body,
 
 /* Orangeチームスコア */
 #orange-score-box {
-  top: 10px;
+  top: 40px;
   right: 790px;
 
   width: 60px;
@@ -99,7 +130,68 @@ body,
   font-size: 50px;
 }
 
+/* Orangeチーム勝利数 */
+#orange-team-win-count-box {
+  top: 120px;
+  left: 1140px;
 
+  width: 350px;
+  text-align: left;
+}
+#orange-team-win-count .win-icon:after {
+  /* From https://fonts.google.com/icons */
+  font-family: 'Material Icons';
+  content: '\eaa3';
+  font-weight: 900;
+  font-size: 30px;
+  color: orange;
+}
+
+/* Orangeチーム画像 */
+#orange-image-box {
+  top: 50px;
+  right: 380px;
+
+  max-width: 70px;
+  max-height: 70px;
+}
+#orange-image {
+  max-width: 70px;
+  max-height: 70px;
+  border-style: none;
+}
+
+/* 試合情報メインタイトル */
+#match-info-main-tile-box {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 700px;
+  text-align: center;
+}
+#match-info-main-tile {
+  color: white;
+  font-size: 25px;
+}
+
+/* 試合情報サブタイトル */
+#match-info-sub-tile-box {
+  top: 125px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 700px;
+  text-align: center;
+}
+#match-info-sub-tile {
+  color: white;
+  font-size: 20px;
+}
 
 /***************************************************
  ■ スタッツボード ■ 

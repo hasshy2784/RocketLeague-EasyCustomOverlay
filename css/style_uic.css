@@ -1,0 +1,34 @@
+/***************************************************
+
+Coded by HASSHY
+Please follow me on Twitter and Twitch (@hasshy2784)
+
+***************************************************/
+
+/* チームロゴの画像サイズ */
+.team-logo {
+  width: 200px;
+  height: 200px;
+}
+
+
+
+/* プレイヤーテーブル　セルの設定 */
+.players-box th,
+.players-box td {
+  width: 100px;
+}
+
+/* プレイヤーアイコンの画像サイズ */
+.players-box th.player-icon,
+.players-box img.player-icon {
+  width: 40px !important;
+  height: 40px;
+}
+
+/* プレイヤーテーブル　セルの設定（プレイヤー名） */
+.players-box th.player-name {
+  width: 200px;
+  text-align: left !important;
+}
+

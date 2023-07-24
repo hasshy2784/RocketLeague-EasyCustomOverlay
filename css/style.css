@@ -17,7 +17,7 @@ body,
 
 /* タイマー */
 #timer-box {
-  top: 10px;
+  top: 40px;
   left: 0px;
   right: 0px;
   margin-left: auto;
@@ -34,7 +34,7 @@ body,
 
 /* Blueチーム名 */
 #blue-team-name-box {
-  top: 20px;
+  top: 55px;
   left: 400px;
 
   width: 350px;
@@ -47,7 +47,7 @@ body,
 
 /* Blueチームスコア */
 #blue-score-box {
-  top: 10px;
+  top: 40px;
   left: 790px;
 
   width: 60px;
@@ -58,9 +58,40 @@ body,
   font-size: 50px;
 }
 
+/* Blueチーム勝利数 */
+#blue-team-win-count-box {
+  top: 120px;
+  right: 1140px;
+
+  width: 350px;
+  text-align: right;
+}
+#blue-team-win-count .win-icon:after {
+  /* From https://fonts.google.com/icons */
+  font-family: 'Material Icons';
+  content: '\eaa3';
+  font-weight: 900;
+  font-size: 30px;
+  color: blue;
+}
+
+/* Blueチーム画像 */
+#blue-image-box {
+  top: 50px;
+  left: 380px;
+
+  max-width: 70px;
+  max-height: 70px;
+}
+#blue-image {
+  max-width: 70px;
+  max-height: 70px;
+  border-style: none;
+}
+
 /* Orangeチーム名 */
 #orange-team-name-box {
-  top: 20px;
+  top: 55px;
   right: 400px;
 
   width: 350px;
@@ -73,7 +104,7 @@ body,
 
 /* Orangeチームスコア */
 #orange-score-box {
-  top: 10px;
+  top: 40px;
   right: 790px;
 
   width: 60px;
@@ -84,15 +115,89 @@ body,
   font-size: 50px;
 }
 
+/* Orangeチーム勝利数 */
+#orange-team-win-count-box {
+  top: 120px;
+  left: 1140px;
+
+  width: 350px;
+  text-align: left;
+}
+#orange-team-win-count .win-icon:after {
+  /* From https://fonts.google.com/icons */
+  font-family: 'Material Icons';
+  content: '\eaa3';
+  font-weight: 900;
+  font-size: 30px;
+  color: orange;
+}
+
+/* Orangeチーム画像 */
+#orange-image-box {
+  top: 50px;
+  right: 380px;
+
+  max-width: 70px;
+  max-height: 70px;
+}
+#orange-image {
+  max-width: 70px;
+  max-height: 70px;
+  border-style: none;
+}
+
+/* 試合情報メインタイトル */
+#match-info-main-tile-box {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 700px;
+  text-align: center;
+}
+#match-info-main-tile {
+  color: white;
+  font-size: 25px;
+}
+
+/* 試合情報サブタイトル */
+#match-info-sub-tile-box {
+  top: 125px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 700px;
+  text-align: center;
+}
+#match-info-sub-tile {
+  color: white;
+  font-size: 20px;
+}
+
 /***************************************************
  ■ Blueチームの情報 ■ 
 ***************************************************/
 
 /* Blueチームプレイヤー1の情報 */
+/* BOX */
+#blue-player-1-box {
+  top:   15px;
+  left:  0px;
+
+  width:  270px;
+  height: 45px;
+
+  background-color: #000033;
+}
+
 /* プレイヤー名 */
 #blue-player-1-name-box {
-  top:   15px;
-  left:  10px;
+  padding-top:   2px;
+  padding-left:  6px;
 
   width:       270px;
   text-align:   left;
@@ -104,8 +209,8 @@ body,
 
 /* ブースト値 */
 #blue-player-1-boost-box {
-  top:   15px;
-  left:  10px;
+  padding-top:   2px;
+  padding-right:  4px;
 
   width:       270px;
   text-align:  right;
@@ -117,10 +222,10 @@ body,
 
 /* ブーストバー */
 #blue-player-1-p-bar-box {
-  top:   40px;
-  left:  10px;
+  top:   30px;
+  left:  6px;
 
-  width:       270px;
+  width:       260px;
   height:       10px;
   background-color: aliceblue;
 }
@@ -129,12 +234,23 @@ body,
 }
 
 /* Blueチームプレイヤー2の情報 */
+/* BOX */
+#blue-player-2-box {
+  top:   75px;
+  left:  0px;
+
+  width:  270px;
+  height: 45px;
+
+  background-color: #000033;
+}
+
 /* プレイヤー名 */
 #blue-player-2-name-box {
-  top: 75px;
-  left: 10px;
+  padding-top: 2px;
+  padding-left: 6px;
 
-  width: 280px;
+  width: 270px;
   text-align: left;
 }
 #blue-player-2-name {
@@ -144,10 +260,10 @@ body,
 
 /* ブースト値 */
 #blue-player-2-boost-box {
-  top: 75px;
-  left: 10px;
+  padding-top: 2px;
+  padding-right: 4px;
 
-  width: 280px;
+  width: 270px;
   text-align: right;
 }
 #blue-player-2-boost {
@@ -157,10 +273,10 @@ body,
 
 /* ブーストバー */
 #blue-player-2-p-bar-box {
-  top: 100px;
-  left: 10px;
+  top: 30px;
+  left: 6px;
 
-  width: 280px;
+  width: 260px;
   height: 10px;
   background-color: aliceblue;
 }
@@ -169,12 +285,23 @@ body,
 }
 
 /* Blueチームプレイヤー3の情報 */
+/* BOX */
+#blue-player-3-box {
+  top:   135px;
+  left:  0px;
+
+  width:  270px;
+  height: 45px;
+
+  background-color: #000033;
+}
+
 /* プレイヤー名 */
 #blue-player-3-name-box {
-  top: 135px;
-  left: 10px;
+  padding-top: 2px;
+  padding-left: 6px;
 
-  width: 290px;
+  width: 270px;
   text-align: left;
 }
 #blue-player-3-name {
@@ -183,24 +310,11 @@ body,
 }
 
 /* ブースト値 */
-#blue-player-3-p-bar-box {
-  top: 160px;
-  left: 10px;
-
-  width: 290px;
-  height: 10px;
-  background-color: aliceblue;
-}
-#blue-player-3-p-bar {
-  background-color: dodgerblue;
-}
-
-/* ブーストバー */
 #blue-player-3-boost-box {
-  top: 135px;
-  left: 10px;
+  padding-top: 2px;
+  padding-right: 4px;
 
-  width: 290px;
+  width: 270px;
   text-align: right;
 }
 #blue-player-3-boost {
@@ -208,13 +322,38 @@ body,
   font-size: 16px;
 }
 
+
+/* ブーストバー */
+#blue-player-3-p-bar-box {
+  top: 30px;
+  left: 6px;
+
+  width: 260px;
+  height: 10px;
+  background-color: aliceblue;
+}
+#blue-player-3-p-bar {
+  background-color: dodgerblue;
+}
+
 /* Blueチームプレイヤー4の情報 */
+/* BOX */
+#blue-player-4-box {
+  top:   195px;
+  left:  0px;
+
+  width:  270px;
+  height: 45px;
+
+  background-color: #000033;
+}
+
 /* プレイヤー名 */
 #blue-player-4-name-box {
-  top: 195px;
-  left: 10px;
+  padding-top: 2px;
+  padding-left: 6px;
 
-  width: 300px;
+  width: 270px;
   text-align: left;
 }
 #blue-player-4-name {
@@ -224,10 +363,10 @@ body,
 
 /* ブースト値 */
 #blue-player-4-boost-box {
-  top: 195px;
-  left: 10px;
+  padding-top: 2px;
+  padding-right: 4px;
 
-  width: 300px;
+  width: 270px;
   text-align: right;
 }
 #blue-player-4-boost {
@@ -237,10 +376,10 @@ body,
 
 /* ブーストバー */
 #blue-player-4-p-bar-box {
-  top: 220px;
-  left: 10px;
+  top: 30px;
+  left: 6px;
 
-  width: 300px;
+  width: 260px;
   height: 10px;
   background-color: aliceblue;
 }
@@ -253,10 +392,21 @@ body,
 ***************************************************/
 
 /* Orangeチームプレイヤー1の情報 */
+/* BOX */
+#orange-player-1-box {
+  top:   15px;
+  right:  0px;
+
+  width:  270px;
+  height: 45px;
+
+  background-color: #000033;
+}
+
 /* プレイヤー名 */
 #orange-player-1-name-box {
-  top: 15px;
-  right: 10px;
+  padding-top: 2px;
+  padding-right: 6px;
 
   width: 270px;
   text-align: right;
@@ -268,8 +418,8 @@ body,
 
 /* ブースト値 */
 #orange-player-1-boost-box {
-  top: 15px;
-  right: 10px;
+  padding-top: 2px;
+  padding-left: 4px;
 
   width: 270px;
   text-align: left;
@@ -281,10 +431,10 @@ body,
 
 /* ブーストバー */
 #orange-player-1-p-bar-box {
-  top: 40px;
-  right: 10px;
+  top: 30px;
+  right: 6px;
 
-  width: 270px;
+  width: 260px;
   height: 10px;
   background-color: aliceblue;
 }
@@ -293,12 +443,23 @@ body,
 }
 
 /* Orangeチームプレイヤー2の情報 */
+/* BOX */
+#orange-player-2-box {
+  top:   75px;
+  right:  0px;
+
+  width:  270px;
+  height: 45px;
+
+  background-color: #000033;
+}
+
 /* プレイヤー名 */
 #orange-player-2-name-box {
-  top: 75px;
-  right: 10px;
+  padding-top: 2px;
+  padding-right: 6px;
 
-  width: 280px;
+  width: 270px;
   text-align: right;
 }
 #orange-player-2-name {
@@ -308,10 +469,10 @@ body,
 
 /* ブースト値 */
 #orange-player-2-boost-box {
-  top: 75px;
-  right: 10px;
+  padding-top: 2px;
+  padding-left: 4px;
 
-  width: 280px;
+  width: 270px;
   text-align: left;
 }
 #orange-player-2-boost {
@@ -321,10 +482,10 @@ body,
 
 /* ブーストバー */
 #orange-player-2-p-bar-box {
-  top: 100px;
-  right: 10px;
+  top: 30px;
+  right: 6px;
 
-  width: 280px;
+  width: 260px;
   height: 10px;
   background-color: aliceblue;
 }
@@ -333,12 +494,23 @@ body,
 }
 
 /* Orangeチームプレイヤー3の情報 */
+/* BOX */
+#orange-player-3-box {
+  top:   135px;
+  right:  0px;
+
+  width:  270px;
+  height: 45px;
+
+  background-color: #000033;
+}
+
 /* プレイヤー名 */
 #orange-player-3-name-box {
-  top: 135px;
-  right: 10px;
+  padding-top: 2px;
+  padding-right: 6px;
 
-  width: 290px;
+  width: 270px;
   text-align: right;
 }
 #orange-player-3-name {
@@ -348,10 +520,10 @@ body,
 
 /* ブースト値 */
 #orange-player-3-boost-box {
-  top: 135px;
-  right: 10px;
+  padding-top: 2px;
+  padding-left: 4px;
 
-  width: 290px;
+  width: 270px;
   text-align: left;
 }
 #orange-player-3-boost {
@@ -361,10 +533,10 @@ body,
 
 /* ブーストバー */
 #orange-player-3-p-bar-box {
-  top: 160px;
-  right: 10px;
+  top: 30px;
+  right: 6px;
 
-  width: 290px;
+  width: 260px;
   height: 10px;
   background-color: aliceblue;
 }
@@ -373,12 +545,23 @@ body,
 }
 
 /* Orangeチームプレイヤー4の情報 */
+/* BOX */
+#orange-player-4-box {
+  top:   195px;
+  right:  0px;
+
+  width:  270px;
+  height: 45px;
+
+  background-color: #000033;
+}
+
 /* プレイヤー名 */
 #orange-player-4-name-box {
-  top: 195px;
-  right: 10px;
+  padding-top: 2px;
+  padding-right: 6px;
 
-  width: 300px;
+  width: 270px;
   text-align: right;
 }
 #orange-player-4-name {
@@ -388,10 +571,10 @@ body,
 
 /* ブースト値 */
 #orange-player-4-boost-box {
-  top: 195px;
-  right: 10px;
+  padding-top: 2px;
+  padding-left: 4px;
 
-  width: 300px;
+  width: 270px;
   text-align: left;
 }
 #orange-player-4-boost {
@@ -401,10 +584,10 @@ body,
 
 /* ブーストバー */
 #orange-player-4-p-bar-box {
-  top: 220px;
-  right: 10px;
+  top: 30px;
+  right: 6px;
 
-  width: 300px;
+  width: 260px;
   height: 10px;
   background-color: aliceblue;
 }

@@ -11,10 +11,10 @@ See my blog
 (https://84log.xii.jp/rocketleague-easycustomoverlay)
 
 ## Announcement
-[Tweet on Twitter](https://twitter.com/hasshy084/status/1576291386248159233)
+[Tweet on Twitter](https://twitter.com/hasshy2784/status/1576291386248159233)
 
 ## Author
-HASSHY [[Twitter](https://twitter.com/hasshy084)] [[Twitch](https://www.twitch.tv/hasshy084)]
+HASSHY [[Twitter](https://twitter.com/hasshy2784)] [[Twitch](https://www.twitch.tv/hasshy2784)]
 
 ## Licence
 MIT Licence

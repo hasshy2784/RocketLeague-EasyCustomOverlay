@@ -19,6 +19,7 @@ Please follow me on Twitter and Twitch (@hasshy2784)
 
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script> -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone" rel="stylesheet">
     <link rel="stylesheet" href="./css/style_heatmap.css">
     <link rel="stylesheet" href="./css/style_custom.css">
 
@@ -55,6 +56,10 @@ Please follow me on Twitter and Twitch (@hasshy2784)
         <div class="position-absolute" id="blue-score-box">
           <span id="blue-score">0</span>
         </div>
+        <!-- Blueチーム画像 -->
+        <div class="position-absolute" id="blue-image-box">
+          <img id="blue-image"></span>
+        </div>
 
         <!-- Orangeチーム名 -->
         <div class="position-absolute" id="orange-team-name-box">
@@ -63,6 +68,48 @@ Please follow me on Twitter and Twitch (@hasshy2784)
         <!-- Orangeチームスコア -->
         <div class="position-absolute" id="orange-score-box">
           <span id="orange-score">0</span>
+        </div>
+        <!-- Orangeチーム画像 -->
+        <div class="position-absolute" id="orange-image-box">
+          <img id="orange-image"></span>
+        </div>
+
+        <!-- 試合情報メインタイトル -->
+        <div class="position-absolute" id="match-info-main-tile-box">
+          <span id="match-info-main-tile"></span>
+        </div>
+        <!-- 試合情報サブタイトル -->
+        <div class="position-absolute" id="match-info-sub-tile-box">
+          <span id="match-info-sub-tile"></span>
+        </div>
+
+        <!-- Blueチーム勝利数 -->
+        <div class="position-absolute" id="blue-team-win-count-box">
+          <span id="blue-team-win-count">
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+          </span>
+        </div>
+        <!-- Orangeチーム勝利数 -->
+        <div class="position-absolute" id="orange-team-win-count-box">
+          <span id="orange-team-win-count">
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+          </span>
         </div>
 
       </div>

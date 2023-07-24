@@ -15,6 +15,7 @@ Please follow me on Twitter and Twitch (@hasshy2784)
     <script src="./flex-gauge-master/FlexGauge.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/style_custom.css">
@@ -30,11 +31,6 @@ Please follow me on Twitter and Twitch (@hasshy2784)
         <img class="position-absolute" src="./images/replay.png">
         <img class="position-absolute" id="scored-blue-image" src="./images/scored-blue.png">
         <img class="position-absolute" id="scored-orange-image" src="./images/scored-orange.png">
-      </div>
-
-      <!-- 各プレイヤー情報背景画像の指定 -->
-      <div class="position-absolute" id="players-back-image">
-        <img src="./images/players-back.png">
       </div>
 
       <!-- スコアボード画像の指定 -->
@@ -75,6 +71,10 @@ Please follow me on Twitter and Twitch (@hasshy2784)
         <div class="position-absolute" id="blue-score-box">
           <span id="blue-score">0</span>
         </div>
+        <!-- Blueチーム画像 -->
+        <div class="position-absolute" id="blue-image-box">
+          <img id="blue-image">
+        </div>
 
         <!-- Orangeチーム名 -->
         <div class="position-absolute" id="orange-team-name-box">
@@ -83,6 +83,40 @@ Please follow me on Twitter and Twitch (@hasshy2784)
         <!-- Orangeチームスコア -->
         <div class="position-absolute" id="orange-score-box">
           <span id="orange-score">0</span>
+        </div>
+        <!-- Orangeチーム画像 -->
+        <div class="position-absolute" id="orange-image-box">
+          <img id="orange-image">
+        </div>
+
+        <!-- 試合情報メインタイトル -->
+        <div class="position-absolute" id="match-info-main-tile-box">
+          <span id="match-info-main-tile"></span>
+        </div>
+        <!-- 試合情報サブタイトル -->
+        <div class="position-absolute" id="match-info-sub-tile-box">
+          <span id="match-info-sub-tile"></span>
+        </div>
+
+        <!-- Blueチーム勝利数 -->
+        <div class="position-absolute" id="blue-team-win-count-box">
+          <span id="blue-team-win-count">
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+          </span>
+        </div>
+        <!-- Orangeチーム勝利数 -->
+        <div class="position-absolute" id="orange-team-win-count-box">
+          <span id="orange-team-win-count">
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+            <span class="win-icon"></span>
+          </span>
         </div>
 
       </div>
@@ -93,7 +127,12 @@ Please follow me on Twitter and Twitch (@hasshy2784)
       <div class="position-absolute full-screen" id="blue-players-box">
 
         <!-- Blueチームプレイヤー1の情報 -->
-        <div class="position-absolute full-screen d-none" id="blue-player-1-box">
+        <div class="position-absolute d-none" id="blue-player-1-box">
+
+          <!-- プレイヤー画像 -->
+          <div class="position-absolute" id="blue-player-1-image-box">
+            <img id="blue-player-1-image">
+          </div>
 
           <!-- プレイヤー名 -->
           <div class="position-absolute" id="blue-player-1-name-box">
@@ -117,6 +156,11 @@ Please follow me on Twitter and Twitch (@hasshy2784)
         <!-- Blueチームプレイヤー2の情報 -->
         <div class="position-absolute full-screen d-none" id="blue-player-2-box">
 
+          <!-- プレイヤー画像 -->
+          <div class="position-absolute" id="blue-player-2-image-box">
+            <img id="blue-player-2-image">
+          </div>
+
           <!-- プレイヤー名 -->
           <div class="position-absolute" id="blue-player-2-name-box">
             <span id="blue-player-2-name">name</span>
@@ -138,6 +182,11 @@ Please follow me on Twitter and Twitch (@hasshy2784)
 
         <!-- Blueチームプレイヤー3の情報 -->
         <div class="position-absolute full-screen d-none" id="blue-player-3-box">
+
+          <!-- プレイヤー画像 -->
+          <div class="position-absolute" id="blue-player-3-image-box">
+            <img id="blue-player-3-image">
+          </div>
 
           <!-- プレイヤー名 -->
           <div class="position-absolute" id="blue-player-3-name-box">
@@ -161,6 +210,11 @@ Please follow me on Twitter and Twitch (@hasshy2784)
         <!-- Blueチームプレイヤー4の情報 -->
         <div class="position-absolute full-screen d-none" id="blue-player-4-box">
         
+          <!-- プレイヤー画像 -->
+          <div class="position-absolute" id="blue-player-4-image-box">
+            <img id="blue-player-4-image">
+          </div>
+
           <!-- プレイヤー名 -->
           <div class="position-absolute" id="blue-player-4-name-box">
             <span id="blue-player-4-name">name</span>
@@ -190,6 +244,11 @@ Please follow me on Twitter and Twitch (@hasshy2784)
         <!-- Orangeチームプレイヤー1の情報 -->
         <div class="position-absolute full-screen d-none" id="orange-player-1-box">
 
+          <!-- プレイヤー画像 -->
+          <div class="position-absolute" id="orange-player-1-image-box">
+            <img id="orange-player-1-image">
+          </div>
+
           <!-- プレイヤー名 -->
           <div class="position-absolute" id="orange-player-1-name-box">
             <span id="orange-player-1-name">name</span>
@@ -211,6 +270,11 @@ Please follow me on Twitter and Twitch (@hasshy2784)
 
         <!-- Orangeチームプレイヤー2の情報 -->
         <div class="position-absolute full-screen d-none" id="orange-player-2-box">
+
+          <!-- プレイヤー画像 -->
+          <div class="position-absolute" id="orange-player-2-image-box">
+            <img id="orange-player-2-image">
+          </div>
 
           <!-- プレイヤー名 -->
           <div class="position-absolute" id="orange-player-2-name-box">
@@ -234,6 +298,11 @@ Please follow me on Twitter and Twitch (@hasshy2784)
         <!-- Orangeチームプレイヤー3の情報 -->
         <div class="position-absolute full-screen d-none" id="orange-player-3-box">
 
+          <!-- プレイヤー画像 -->
+          <div class="position-absolute" id="orange-player-3-image-box">
+            <img id="orange-player-3-image">
+          </div>
+
           <!-- プレイヤー名 -->
           <div class="position-absolute" id="orange-player-3-name-box">
             <span id="orange-player-3-name">name</span>
@@ -256,6 +325,11 @@ Please follow me on Twitter and Twitch (@hasshy2784)
         <!-- Orangeチームプレイヤー4の情報 -->
         <div class="position-absolute full-screen d-none" id="orange-player-4-box">
         
+          <!-- プレイヤー画像 -->
+          <div class="position-absolute" id="orange-player-4-image-box">
+            <img id="orange-player-4-image">
+          </div>
+
           <!-- プレイヤー名 -->
           <div class="position-absolute" id="orange-player-4-name-box">
             <span id="orange-player-4-name">name</span>
