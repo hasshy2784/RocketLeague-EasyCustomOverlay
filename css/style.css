@@ -11,6 +11,10 @@ body,
   height: 1080px;
 }
 
+.box.image {
+  display: none;
+}
+
 /***************************************************
  ■ スコアボード ■ 
 ***************************************************/
@@ -60,19 +64,17 @@ body,
 
 /* Blueチーム勝利数 */
 #blue-team-win-count-box {
-  top: 120px;
-  right: 1140px;
+  top: 130px;
+  right: 1145px;
 
   width: 350px;
   text-align: right;
 }
-#blue-team-win-count .win-icon:after {
-  /* From https://fonts.google.com/icons */
-  font-family: 'Material Icons';
-  content: '\eaa3';
-  font-weight: 900;
-  font-size: 30px;
-  color: blue;
+#blue-team-win-count .win-icon.on:after {
+  content: url(../images/win-count-blue-on.png);
+}
+#blue-team-win-count .win-icon.off:after {
+  content: url(../images/win-count-blue-off.png);
 }
 
 /* Blueチーム画像 */
@@ -117,19 +119,17 @@ body,
 
 /* Orangeチーム勝利数 */
 #orange-team-win-count-box {
-  top: 120px;
-  left: 1140px;
+  top: 130px;
+  left: 1145px;
 
   width: 350px;
   text-align: left;
 }
-#orange-team-win-count .win-icon:after {
-  /* From https://fonts.google.com/icons */
-  font-family: 'Material Icons';
-  content: '\eaa3';
-  font-weight: 900;
-  font-size: 30px;
-  color: orange;
+#orange-team-win-count .win-icon.on:after {
+  content: url(../images/win-count-orange-on.png);
+}
+#orange-team-win-count .win-icon.off:after {
+  content: url(../images/win-count-orange-off.png);
 }
 
 /* Orangeチーム画像 */
@@ -179,8 +179,134 @@ body,
 }
 
 /***************************************************
+ ■ スタットフィードの情報 ■ 
+***************************************************/
+
+/* BOX */
+#statfeed-box {
+  margin-top: 300px;
+  padding-left: 25px;
+  padding-right: 25px;
+
+  /* スタットフィード表示時間 */
+  --time-display: 3s;
+}
+
+/* 表示設定 */
+.statfeed {
+
+  /* 表示位置（flex-start:左寄せ、flex-end:右寄せ） */
+  justify-content: flex-start;
+
+  /* スタットフィード各行の縦間隔 */
+  margin-bottom: 10px;
+  
+}
+
+/* 各列のデザイン設定 */
+.statfeed div{
+
+  /* 余白 */
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 20px;
+  padding-right: 30px;
+
+}
+
+/* 各列の前に表示される矢印のデザイン設定 */
+.statfeed div::before{
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 100%;
+  right: calc(100%);
+
+  clip-path: polygon(
+    0 0,
+    calc(100% + 1px) 0,
+    calc(100% + 1px) 100%,
+    0 100%,
+    100% 50%
+  );
+}
+
+/* 各列の後に表示される矢印のデザイン設定 */
+.statfeed div::after{
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 100%;
+  left: 100%;
+
+  clip-path: polygon(-1px 0, 0 0, 100% 50%, 0 100%, -1px 100%);
+}
+
+/* イベント種別の情報 */
+.statfeed .event,
+.statfeed .event::before,
+.statfeed .event::after {
+  color: #fff;
+  background: #000;
+}
+
+/* Blueチームの情報 */
+.statfeed .team0,
+.statfeed .team0::before,
+.statfeed .team0:after {
+  color: #fff;
+  background: blue;
+}
+
+/* Orangeチームの情報 */
+.statfeed .team1,
+.statfeed .team1::before,
+.statfeed .team1::after {
+  color: #fff;
+  background: orange;
+}
+
+/* フェードイン・アウト */
+.statfeed {
+  opacity: 0;
+
+  animation-name: statfeed_FadeInOut;
+  animation-timing-function: ease;
+  animation-duration: var(--time-display); /* アニメーションの再生時間 */
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+
+/* スタットフィード　フェードイン・アウト */
+@keyframes statfeed_FadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/***************************************************
  ■ Blueチームの情報 ■ 
 ***************************************************/
+
+#blue-players-box img {
+  padding: 2px;
+  border-radius: 50%;
+  border: 3px solid blue;
+  background-color: rgb(148, 148, 255);
+}
 
 /* Blueチームプレイヤー1の情報 */
 /* BOX */
@@ -192,6 +318,17 @@ body,
   height: 45px;
 
   background-color: #000033;
+}
+
+/* プレイヤー画像 */
+#blue-player-1-image-box {
+  top: -10px;
+  left: 270px;
+}
+#blue-player-1-image {
+  max-width: 55px;
+  max-height: 55px;
+  border-style: none;
 }
 
 /* プレイヤー名 */
@@ -245,6 +382,17 @@ body,
   background-color: #000033;
 }
 
+/* プレイヤー画像 */
+#blue-player-2-image-box {
+  top: -10px;
+  left: 270px;
+}
+#blue-player-2-image {
+  max-width: 55px;
+  max-height: 55px;
+  border-style: none;
+}
+
 /* プレイヤー名 */
 #blue-player-2-name-box {
   padding-top: 2px;
@@ -294,6 +442,17 @@ body,
   height: 45px;
 
   background-color: #000033;
+}
+
+/* プレイヤー画像 */
+#blue-player-3-image-box {
+  top: -10px;
+  left: 270px;
+}
+#blue-player-3-image {
+  max-width: 55px;
+  max-height: 55px;
+  border-style: none;
 }
 
 /* プレイヤー名 */
@@ -348,6 +507,17 @@ body,
   background-color: #000033;
 }
 
+/* プレイヤー画像 */
+#blue-player-4-image-box {
+  top: -10px;
+  left: 270px;
+}
+#blue-player-4-image {
+  max-width: 55px;
+  max-height: 55px;
+  border-style: none;
+}
+
 /* プレイヤー名 */
 #blue-player-4-name-box {
   padding-top: 2px;
@@ -387,9 +557,41 @@ body,
   background-color: dodgerblue;
 }
 
+/* Blueチームプレイヤーのアクティブ時の表示 */
+/* BOX */
+#blue-players-box .active {
+  background: linear-gradient(90deg, rgba(0,0,51,1) 0%, rgba(0,0,51,1) 50%, rgba(255,0,0,1) 100%);
+}
+
+/* プレイヤー名 */
+#blue-players-box .active .name span {
+  color: white;
+}
+
+/* ブースト値 */
+#blue-players-box .active .boost span {
+  color: white;
+}
+
+/* ブーストバー */
+#blue-players-box .active .boost-bar {
+  background-color: aliceblue;
+}
+#blue-players-box .active .boost-bar div {
+  background-color: dodgerblue;
+}
+
 /***************************************************
  ■ Orangeチームの情報 ■ 
 ***************************************************/
+
+#orange-players-box img {
+  padding: 2px;
+  border-radius: 50%;
+  border: 4px solid orange;
+  background-color: rgb(255, 225, 200);
+}
+
 
 /* Orangeチームプレイヤー1の情報 */
 /* BOX */
@@ -401,6 +603,17 @@ body,
   height: 45px;
 
   background-color: #000033;
+}
+
+/* プレイヤー画像 */
+#orange-player-1-image-box {
+  top: -10px;
+  right: 270px;
+}
+#orange-player-1-image {
+  max-width: 55px;
+  max-height: 55px;
+  border-style: none;
 }
 
 /* プレイヤー名 */
@@ -454,6 +667,17 @@ body,
   background-color: #000033;
 }
 
+/* プレイヤー画像 */
+#orange-player-2-image-box {
+  top: -10px;
+  right: 270px;
+}
+#orange-player-2-image {
+  max-width: 55px;
+  max-height: 55px;
+  border-style: none;
+}
+
 /* プレイヤー名 */
 #orange-player-2-name-box {
   padding-top: 2px;
@@ -504,6 +728,18 @@ body,
 
   background-color: #000033;
 }
+
+/* プレイヤー画像 */
+#orange-player-3-image-box {
+  top: -10px;
+  right: 270px;
+}
+#orange-player-3-image {
+  max-width: 55px;
+  max-height: 55px;
+  border-style: none;
+}
+
 
 /* プレイヤー名 */
 #orange-player-3-name-box {
@@ -556,6 +792,17 @@ body,
   background-color: #000033;
 }
 
+/* プレイヤー画像 */
+#orange-player-4-image-box {
+  top: -10px;
+  right: 270px;
+}
+#orange-player-4-image {
+  max-width: 55px;
+  max-height: 55px;
+  border-style: none;
+}
+
 /* プレイヤー名 */
 #orange-player-4-name-box {
   padding-top: 2px;
@@ -595,9 +842,62 @@ body,
   background-color: orange;
 }
 
+/* Orangeチームプレイヤーのアクティブ時の表示 */
+/* BOX */
+#orange-players-box .active {
+  background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(0,0,51,1) 50%, rgba(0,0,51,1) 100%);
+}
+
+/* プレイヤー名 */
+#orange-players-box .active .name span {
+  color: white;
+}
+
+/* ブースト値 */
+#orange-players-box .active .boost span {
+  color: white;
+}
+
+/* ブーストバー */
+#orange-players-box .active .boost-bar {
+  background-color: aliceblue;
+}
+#orange-players-box .active .boost-bar div {
+  background-color: orange;
+}
+
+/***************************************************
+ ■ IsDead時（デモされた時）の背景色変更 ■ 
+***************************************************/
+#blue-players-box .isdead,
+#orange-players-box .isdead{
+  background-color: #999;
+}
+
 /***************************************************
  ■ アクティブプレイヤーの情報 ■ 
 ***************************************************/
+/* プレイヤー画像 */
+#active-image-box {
+  bottom: 130px;
+  left: 25px;
+}
+#active-image {
+  width: 250px;
+  height: 250px;
+  
+  padding: 5px;
+  border-radius: 50%;
+}
+#active-image.blue {
+  border: 9px solid blue;
+  background-color: rgb(148, 148, 255);
+}
+#active-image.orange {
+  border: 9px solid orange;
+  background-color: rgb(255, 225, 200);
+}
+
 /* プレイヤー名 */
 #active-name-box {
   bottom: 70px;
@@ -704,15 +1004,15 @@ body,
 
 /* 車体速度 */
 #active-speed-box {
-  bottom: 0px;
-  left: 0px;
+  bottom: 70px;
+  right: 138px;
 
   width: 40px;
   text-align: right;
 }
 #active-speed {
   color: white;
-  font-size: 16px;
+  font-size: 30px;
 }
 
 /* ボールタッチ回数 */
@@ -731,7 +1031,7 @@ body,
 
 /* ブースト値 */
 #active-boost-box {
-  bottom: 82px;
+  bottom: 110px;
   right: 67px;
 
   width: 150px;
@@ -756,9 +1056,12 @@ body,
 }
 
 /* ブーストゲージ */
-#active-p-gage-box {
-  bottom: 27px;
-  right: 42px;
+#gauge {
+  position: absolute;
+  bottom: 36px;
+  right: 40px;
+  width: 200px !important;
+  height: 200px !important;
 }
 
 /***************************************************
@@ -810,7 +1113,7 @@ body,
 
 /* ミニマップ */
 #minimap-box {
-  top: 400px;
+  top: 450px;
   left: 0px;
 
   opacity: 0.8;

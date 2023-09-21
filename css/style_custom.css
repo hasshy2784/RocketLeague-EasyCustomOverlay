@@ -38,7 +38,7 @@ span {
 /* 車体速度 */
 #active-speed-box {
   /* 非表示設定 */
-  display: none;
+  /* display: none; */
 }
 
 /* ボールタッチ回数 */
