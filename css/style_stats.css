@@ -73,19 +73,17 @@ body,
 
 /* Blueチーム勝利数 */
 #blue-team-win-count-box {
-  top: 120px;
-  right: 1140px;
+  top: 130px;
+  right: 1145px;
 
   width: 350px;
   text-align: right;
 }
-#blue-team-win-count .win-icon:after {
-  /* From https://fonts.google.com/icons */
-  font-family: 'Material Icons';
-  content: '\eaa3';
-  font-weight: 900;
-  font-size: 30px;
-  color: blue;
+#blue-team-win-count .win-icon.on:after {
+  content: url(../images/win-count-blue-on.png);
+}
+#blue-team-win-count .win-icon.off:after {
+  content: url(../images/win-count-blue-off.png);
 }
 
 /* Blueチーム画像 */
@@ -132,19 +130,17 @@ body,
 
 /* Orangeチーム勝利数 */
 #orange-team-win-count-box {
-  top: 120px;
-  left: 1140px;
+  top: 130px;
+  left: 1145px;
 
   width: 350px;
   text-align: left;
 }
-#orange-team-win-count .win-icon:after {
-  /* From https://fonts.google.com/icons */
-  font-family: 'Material Icons';
-  content: '\eaa3';
-  font-weight: 900;
-  font-size: 30px;
-  color: orange;
+#orange-team-win-count .win-icon.on:after {
+  content: url(../images/win-count-orange-on.png);
+}
+#orange-team-win-count .win-icon.off:after {
+  content: url(../images/win-count-orange-off.png);
 }
 
 /* Orangeチーム画像 */
